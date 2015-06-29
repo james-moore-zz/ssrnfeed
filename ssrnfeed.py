@@ -24,14 +24,19 @@ def get_ssrn_csv():
 def main():
     """For each CSV row: do something"""
     reader = get_ssrn_csv()
+    # TODO: Collect entries from SSRN feeds.
     for row in reader:
         # print(row['rss'])
         d = feedparser.parse(row['rss'])
         pprint.pprint(d['feed'])
         pprint.pprint(d['feed']['author'])
+        # TODO: Add a filter to check by date
         #for entry in d.entries:
         #    print(entry.title)
+
         time.sleep(2.0)
+    # TODO: sort list
+    # TODO: output into XML
     return None
 
 if __name__ == '__main__':
